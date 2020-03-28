@@ -5,11 +5,8 @@ import img_bg_slide1 from './images/img_bg_slide_2.jpg'
 import img_bg_slide2 from './images/img_bg_slide_1.JPG'
 
 export default class Introduction extends Component {
-  
-  
 
-  render() {
-    
+  render() {    
     return ( 
       <div>
         <section id="colorlib-hero" className="js-fullheight" data-section="home">

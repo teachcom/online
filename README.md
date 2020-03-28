@@ -17,7 +17,7 @@ git add .
 git commit -m 'Add your commit message'
 git push -u origin master
 npm run deploy    
-npm install gh-pages --save  
+npm install gh-pages --save --dev
 
 ## Available Scripts
 npm install gh-pages --save

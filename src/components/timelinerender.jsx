@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./../App.css";
-import Gallery from "react-photo-gallery";
 
 var photo = [];
 export default class Timelinerender extends Component {
+  
   componentDidMount() {
     console.log("componentDidMount() lifecycle");
   }

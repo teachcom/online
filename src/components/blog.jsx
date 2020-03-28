@@ -1,11 +1,47 @@
 import React, { Component } from 'react'
 
+import Tabletop from "tabletop";
+
+import Object from "./object";
+
+var data = [];
+var year = '2020';
+var id ='';
 export default class Blog extends Component {
+	constructor() {
+		super();
+		this.state = {
+		  data: [],
+		  year,
+		};
+	  }
+	
+
   render() {
+	const { data } = this.state;
+    var options = [];
+    var prev = "";
+    data.forEach(obj => {
+		var dateD = obj.Day;
+		var yFour = dateD.substring(dateD.length - 4, dateD.length);
+		var dateTo = obj.fromDate;
+		var yTo = dateTo.substring(dateTo.length - 4, dateTo.length);
+		if (prev !== yFour && yFour !== "") {
+		  options.push(yFour);
+		  prev = yFour;
+		} else {
+		  if (prev !== yTo) {
+			options.push(yTo);
+		  }
+		}
+	  });
+    console.log(Array.from(options));
+    console.log(data);
+    console.log(this.state.year);
     return (
       <div>
         <section className="colorlib-blog" data-section="blog">
-			<div className="colorlib-narrow-content">
+			{/*<div className="colorlib-narrow-content">
 				<div className="row">
 					<div className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 					<span className="heading-meta">Read</span>
@@ -46,10 +82,65 @@ export default class Blog extends Component {
 				</div>
 				<div className="row">
 					<div className="col-md-12 animate-box">
-					<p><a href="#home" className="btn btn-primary btn-lg btn-load-more">Load more <i className="icon-reload" /></a></p>
+					<p><a href="#" className="btn btn-primary btn-lg btn-load-more">Load more <i className="icon-reload" /></a></p>
 					</div>
 				</div>
-			</div>
+	</div>
+	<div className="colorlib-narrow-content" style={{ display: "block" }}>
+            <div className="row">
+              <div
+                className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+                data-animate-effect="fadeInLeft"
+              >
+                <span className="heading-meta">ผลงาน</span>
+                <h2 className="colorlib-heading">และการฝึกอบรม</h2>
+                  <div>
+                    {options.map((name, index) => (
+                      <button
+                        key={index}
+                        className="btn_option"
+                        to="#"
+						onClick={this.handleSort(name)}
+						value={name}
+                      >
+                        {parseInt(name)+543}
+                      </button>
+                    ))}
+                  </div>
+              </div>
+            </div>
+            <div className="row row-pt-md">
+              <div>
+                <div
+                  className="services color-1"
+                  style={{ alignItems: "center" }}
+                >
+                    <span
+                    
+                    style={{ textAlign: "center", width: "500px" }}
+                  >
+                    <div>
+						
+                      <p
+                        style={{
+                          color: "white",
+                          fontWeight: 700,
+                          fontSize: 20,
+                          color:"grey"
+                        }}
+                      >
+                        ข้อมูลปี {parseInt(this.state.year) + 543}
+                      </p>
+                    </div>
+                  </span>
+                  <Object
+                    dataObject={{ data }}
+                    yearObject={this.state.year}
+                  ></Object>
+                </div>
+              </div>
+            </div>
+          </div>*/}
 			</section>
       </div>
     )

@@ -2,27 +2,29 @@ import React, { Component } from "react";
 import "./../App.css";
 import Tabletop from "tabletop";
 import Timelinerender from "./timelinerender";
+import Training from './training'
 
-var send_data = [];
+var data = [];
 var year = '2020';
+var id ='';
 export default class Timeline extends Component {
   constructor() {
     super();
     this.state = {
       data: [],
-      send_data,
       year,
     };
   }
 
-  handleSort = (index, value) => event => {
-    var year = value;
-    this.setState({ year: value });
+  handleSort = (id, value) => event => {
+    this.setState({ year: value,
+        id: id
+     });
   };
 
   componentDidMount() {
     Tabletop.init({
-      key: "1Z9qSxEV7ON3l20jYbvn6XxiAxN6mhXWE-x-vaaAQcAA",
+      key: "1hov_vf4QAoolGNtRh4whSunYidBp106pFLO4pikre8s",
       callback: googleData => {
         console.log("google sheet data --->", googleData);
         this.setState({
@@ -71,7 +73,7 @@ export default class Timeline extends Component {
                   key={index}
                   className="btn_option"
                   to="#"
-                  onClick={this.handleSort(index,name)}
+                  onClick={this.handleSort(1,name)}
                 >
                   {parseInt(name) + parseInt("543")}
                 </button>

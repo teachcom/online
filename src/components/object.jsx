@@ -117,7 +117,7 @@ export default class Object extends Component {
                 } else {
                   var searchY = parseInt(year) + 543;
                   return (
-                    <tbody >
+                    <tbody key={searchY}>
                       <tr>
                         <td
                           colSpan="6"
@@ -261,7 +261,7 @@ export default class Object extends Component {
                 } else {
                   var searchY = parseInt(year) + 543;
                   return (
-                    <tbody>
+                    <tbody key={searchY}>
                       <tr>
                         <td
                           colSpan="5"
